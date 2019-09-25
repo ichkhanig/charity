@@ -1,0 +1,11 @@
+<ion-content color="medium">
+  <div class="navpage-bg"></div>
+  <div *ngFor="let navItem of navList">
+    <div *ngIf="authStatus || navItem.show" class="div-btn-nav">
+      <button class="btn-nav-page" expand="block" routerLink="{{ navItem.navLink }}" routerDirection="forward">
+        <ion-icon name="{{ navItem.icon }}"></ion-icon>
+        {{ navItem.name }}
+      </button>
+    </div>
+  </div>
+</ion-content>

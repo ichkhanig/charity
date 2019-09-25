@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content color="medium">
+  <div class="loginpage-bg"></div>
+  <ion-grid>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <ion-row>
+        <ion-col offset="1">
+          <ion-input type="text" name="username" ngModel required>Username: </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset="1">
+          <ion-input type="password" name="password" ngModel required>Password: </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="wrongPwd">
+        <ion-col offset="1">
+          <ion-text color="danger">Wrong id or pwd</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset="4">
+          <ion-button style="width: 100px" color="danger" type="submit" [disabled]="f.invalid">Valider</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+    <ion-row>
+      <ion-col offset="4">
+        <ion-button style="width: 100px" color="danger" (click)="onInvite()">Invité</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

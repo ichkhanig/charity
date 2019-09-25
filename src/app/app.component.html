@@ -1,3 +1,23 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-menu side="start" menuId="first" type="reveal">
+    <ion-header>
+      <ion-toolbar color="medium">
+        <ion-title>Start Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <div class="navapp-bg"></div>
+      <div *ngFor="let navItem of navList">
+        <div *ngIf="authStatus || navItem.show">
+          <ion-button color="danger" expand="block" routerLink="../{{ navItem.navLink }}" routerDirection="forward">
+            {{ navItem.name }}
+          </ion-button>
+        </div>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet main></ion-router-outlet>
 </ion-app>
